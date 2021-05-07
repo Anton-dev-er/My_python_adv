@@ -7,5 +7,5 @@ while True:
         else:
             break
     print(sum_number)
-    if input("Continue(y/n):") == "n":break
+    if input("Continue(y/n):") == "n": break
             

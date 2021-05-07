@@ -12,7 +12,7 @@ def count_time(f):
 
 @count_time
 def test_f():
-    a = [i for i in range(1,100_000_000)]
+    a = [i for i in range(1, 100_000_000)]
 
 
 test_f()
