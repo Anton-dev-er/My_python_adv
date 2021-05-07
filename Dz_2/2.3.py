@@ -6,7 +6,7 @@
 
 import random
 
-
+# Сделал все хард кодом если нужно то переделаю
 def main():
     l_matrix = []
     print("Test 1")

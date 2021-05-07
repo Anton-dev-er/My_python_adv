@@ -37,17 +37,17 @@ class Car:
         self._speed = speed
 
     def show_speed(self):
-        print("Ваша швидкість", self._speed)
+        print("Ваша скорость", self._speed)
 
     def go(self, speed):
         if self._speed > speed:
-            print(f"Ваша {self._name} сповільнюється до {speed} км/год")
+            print(f"Ваша {self._name} замедляется до {speed} км/год")
         elif self._speed < speed:
-            print(f"Ваша {self._name} розганяється до {speed} км/год")
+            print(f"Ваша {self._name} разгоняется до {speed} км/год")
         self._speed = speed
 
     def stop(self):
-        print(f"Ваша {self._name} зупиняється")
+        print(f"Ваша {self._name} останавливается")
 
     def turn(self, direction):
         print(f"Ваша {self._name} повернула на {direction}")
@@ -60,7 +60,7 @@ class TownCar(Car):
     def show_speed(self):
         super(TownCar, self).show_speed()
         if self._speed > 60:
-            print("Ваша швидкість вище норми! Ваша швидкість знижена до 60")
+            print("Ваша скорость выше нормы! Ваша скорость снижена до 60")
             self._speed = 60
 
 
@@ -68,7 +68,7 @@ class WorkCar(Car):
     def show_speed(self):
         super(WorkCar, self).show_speed()
         if self._speed > 40:
-            print("Ваша швидкість вище норми! Ваша швидкість знижена до 40")
+            print("Ваша скорость выше нормы! Ваша скорость снижена до 40")
             self._speed = 40
 
 
