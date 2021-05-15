@@ -116,5 +116,8 @@ class Warehouse:
     def __init__(self, items):
         self.items = items
 
-    def __getitem__(self, index):
-        return self.items[index]
+    # def __getitem__(self, index):
+    #     return self.items[index]
+
+    def __iter__(self):
+        return iter(self.items)
