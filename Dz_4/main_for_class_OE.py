@@ -25,5 +25,9 @@ def main():
     print("\n\ntest 2")
     Warehouse.show_info(Printer("MyPrinter", 2020))
 
+    print("\n\ntest 3")
+    for i in Warehouse(device):
+        print(i)
+
 
 main()

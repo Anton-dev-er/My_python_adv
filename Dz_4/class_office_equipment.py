@@ -113,3 +113,8 @@ class Warehouse:
         else:
             device.show_info()
 
+    def __init__(self, items):
+        self.items = items
+
+    def __getitem__(self, index):
+        return self.items[index]
