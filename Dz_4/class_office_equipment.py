@@ -104,20 +104,19 @@ class Xerox(OfficeEquipment):
 
 
 class Warehouse:
+    __devices = []
+
+    def __init__(self):
+        self.items = __class__.__devices
+
+    def __getitem__(self, index):
+         return self.items[index]
+
     @staticmethod
-    def show_info(device):
-        if isinstance(device, list):
-            for i in device:
-                print("\n\t" + i.model)
-                i.show_info()
-        else:
-            device.show_info()
+    def show_devices():
+        for i in __class__.__devices:
+            print("\n\t" + i.model)
+            i.show_info()
 
-    def __init__(self, items):
-        self.items = items
-
-    # def __getitem__(self, index):
-    #     return self.items[index]
-
-    def __iter__(self):
-        return iter(self.items)
+    def equipment_add_to_warehouse(self, device):
+        self.__devices.append(device)

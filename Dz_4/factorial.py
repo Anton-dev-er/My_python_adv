@@ -1,17 +1,14 @@
-def generator(n):
+def factorial(n):
     f = 1
-    i = 1
-    while n > 0:
-        f = f * i
+    for i in range(1, n+1):
+        f *= i
         yield f
-        n -= 1
-        i += 1
 
 
-gen = generator(6)
-print(next(gen))
-print(next(gen))
-print(next(gen))
-print(next(gen))
-print(next(gen))
-print(next(gen))
+f = factorial(6)
+print(next(f))
+print(next(f))
+print(next(f))
+print(next(f))
+print(next(f))
+print(next(f))

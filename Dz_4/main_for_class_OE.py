@@ -2,7 +2,6 @@ from class_office_equipment import *
 
 
 def main():
-
     pr = Printer("Asus", 2002)
     pr.set_cartridge()
     pr.start_work("Рисунок")
@@ -14,19 +13,16 @@ def main():
     xerox = Xerox("Xerox ", 2020)
     xerox.start_work()
     xerox.start_xerox("Паспорт")
-    print("\n=================")
 
-    print("\n\ntest 1")
-    device = []
-    device.append(scan)
-    device.append(pr)
-    device.append(xerox)
-    Warehouse.show_info(device)
-    print("\n\ntest 2")
-    Warehouse.show_info(Printer("MyPrinter", 2020))
+    print("\n\n=====Test 1=====")
+    w = Warehouse()
+    w.equipment_add_to_warehouse(pr)
+    w.equipment_add_to_warehouse(xerox)
+    w.equipment_add_to_warehouse(scan)
+    w.show_devices()
 
-    print("\n\ntest 3")
-    for i in Warehouse(device):
+    print("\n\n=====Test 2=====")
+    for i in Warehouse():
         print(i)
 
 
