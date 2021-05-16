@@ -109,8 +109,8 @@ class Warehouse:
     def __init__(self):
         self.items = __class__.__devices
 
-    def __getitem__(self, index):
-         return self.items[index]
+    def __iter__(self):
+        return iter(self.items)
 
     @staticmethod
     def show_devices():
