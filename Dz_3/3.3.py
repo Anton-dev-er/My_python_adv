@@ -35,5 +35,5 @@ with open("cw_file.txt") as f:
             new_line = line.split(" ")
             new_line[new_line.index(num_need_change)] = num_for_change
             new_f += " ".join(new_line)
-    with open("new_hw_file.txt", "w") as f_w:
+    with open("new_hw_file.txt", "w", encoding="utf-8") as f_w:
         f_w.write(new_f)
