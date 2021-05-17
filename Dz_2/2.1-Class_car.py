@@ -15,10 +15,15 @@ def main():
     print("=====Тест 1 =====")
     c = TownCar("Bmv", "Red", 70)
     c.stop()
-    c.go(100)
+    print("==")
     c.show_speed()
-    c.go(10)
+    print("==")
+    c.go(100)
+    print("==")
+    c.show_speed()
+    print("==")
     c.turn("Ліво")
+    print("==")
     print(c)
 
     print("\n\n=====Тест 2 =====")
@@ -31,6 +36,8 @@ def main():
 
 
 class Car:
+    _speed_limit = 0
+
     def __init__(self, name, color, speed):
         self._name = name
         self._color = color
@@ -48,6 +55,7 @@ class Car:
 
     def stop(self):
         print(f"Ваша {self._name} останавливается")
+        self._speed = 0
 
     def turn(self, direction):
         print(f"Ваша {self._name} повернула на {direction}")
@@ -57,19 +65,29 @@ class Car:
 
 
 class TownCar(Car):
+    def __init__(self, name, color, speed, speed_limit=60):
+        super().__init__(name, color, speed)
+        self._speed_limit = speed_limit
+
     def show_speed(self):
         super(TownCar, self).show_speed()
-        if self._speed > 60:
-            print("Ваша скорость выше нормы! Ваша скорость снижена до 60")
-            self._speed = 60
+        if self._speed > self._speed_limit:
+            print("Ваша скорость выше нормы!")
+            if input(f"Предлагаю снизить скорость до {self._speed_limit} (y/n):") == "y":
+                self._speed = self._speed_limit
 
 
 class WorkCar(Car):
+    def __init__(self, name, color, speed, speed_limit=40):
+        super().__init__(name, color, speed)
+        self._speed_limit = speed_limit
+
     def show_speed(self):
         super(WorkCar, self).show_speed()
-        if self._speed > 40:
-            print("Ваша скорость выше нормы! Ваша скорость снижена до 40")
-            self._speed = 40
+        if self._speed > self._speed_limit:
+            print("Ваша скорость выше нормы!")
+            if input(f"Предлагаю снизить скорость до {self._speed_limit} (y/n):") == "y":
+                self._speed = self._speed_limit
 
 
 main()
