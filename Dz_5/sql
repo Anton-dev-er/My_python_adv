@@ -1,0 +1,38 @@
+--Table 1
+create table if not exists shops (
+    order_id SERIAL primary key,
+    created_dt text not null,
+    updated_dt text,
+    order_type text not null,
+    description text,
+    status text not null,
+    serial_no integer,
+    creator_id integer not null,
+    foreign key (creator_id) references employees (employee_id)
+    );
+
+
+--Table 2
+create table if not exists employees (
+	employee_id SERIAL primary key,
+	fio text not null,
+	position_ text not null,
+	department_id integer not null,
+	foreign key (department_id) references departments (department_id)
+);
+
+--Table 3
+create table if not exists departments (
+	department_id SERIAL primary key,
+	department_name text not null
+);
+
+show data_directory;
+
+drop table if exists employees
+drop table if exists shops
+drop table if exists departments
+
+select * from employees
+select * from shops
+select * from departments
