@@ -27,7 +27,6 @@ def main():
 
 class Statement:
     __count_status = 0
-    __id = "None"
 
     def __init__(self, name, serial_number, identificator, status="active"):
         self.serial_number = serial_number
@@ -35,6 +34,7 @@ class Statement:
         self.name = name
         self.data = date.today()
         self.status = status
+        self.ID = uuid.uuid4()
         Statement.__count_status += 1
 
     def set_status(self):
@@ -54,10 +54,7 @@ class Statement:
         return Statement.__count_status
 
     def get_id(self):
-        return f"ID: {uuid.uuid4()}"
-
-    def set_id(self):
-        Statement.__id = uuid.uuid4()
+        return f"ID: {self.ID}"
 
     def show_data(self):
         print(f"Name:{self.name}\nSerial Number:{self.serial_number}\nIdentificator:{self.identificator}\
