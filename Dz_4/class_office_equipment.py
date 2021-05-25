@@ -18,8 +18,6 @@ class OfficeEquipment(ABC):
 
 
 class Printer(OfficeEquipment):
-    __cartridge = False
-
     def __init__(self, model, year):
         self.model = model
         self.__year = year
