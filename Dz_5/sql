@@ -1,38 +1,38 @@
 --Table 1
-create table if not exists shops (
-    order_id SERIAL primary key,
-    created_dt text not null,
-    updated_dt text,
-    order_type text not null,
-    description text,
-    status text not null,
-    serial_no integer,
-    creator_id integer not null,
-    foreign key (creator_id) references employees (employee_id)
+CREATE TABLE IF NOT EXISTS orders (
+    order_id SERIAL PRIMARY KEY,
+    created_dt TEXT NOT NULL,
+    updated_dt TEXT,
+    order_type TEXT NOT NULL,
+    description TEXT,
+    status TEXT NOT NULL,
+    serial_no INTEGER,
+    creator_id INTEGER NOT NULL,
+    FOREIGN KEY (creator_id) REFERENCES employees (employee_id)
     );
 
 
 --Table 2
-create table if not exists employees (
-	employee_id SERIAL primary key,
-	fio text not null,
-	position_ text not null,
-	department_id integer not null,
-	foreign key (department_id) references departments (department_id)
+CREATE TABLE IF NOT EXISTS employees (
+	employee_id SERIAL PRIMARY KEY,
+	fio TEXT NOT NULL,
+	position_ TEXT NOT NULL,
+	department_id INTEGER NOT NULL,
+	FOREIGN KEY (department_id) REFERENCES departments (department_id)
 );
 
 --Table 3
-create table if not exists departments (
-	department_id SERIAL primary key,
-	department_name text not null
+CREATE TABLE IF NOT EXISTS departments (
+	department_id SERIAL PRIMARY KEY,
+	department_name TEXT NOT NULL
 );
 
 show data_directory;
 
-drop table if exists employees
-drop table if exists shops
-drop table if exists departments
+DROP TABLE IF EXISTS employees
+DROP TABLE IF EXISTS shops
+DROP TABLE IF EXISTS departments
 
-select * from employees
-select * from shops
-select * from departments
+SELECT * FROM employees
+SELECT * FROM shops
+SELECT * FROM departments
