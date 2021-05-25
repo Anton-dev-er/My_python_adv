@@ -14,26 +14,27 @@ Four — 4
 
 Решение покрыть тестами."""
 
-with open("cw_file.txt") as f:
-    new_f = ""
-    for line in f:
-        num_need_change = ""
-        if "One" in line:
-            num_need_change = "One"
-            num_for_change = "Один"
-        elif "Two" in line:
-            num_need_change = "Two"
-            num_for_change = "Два"
-        elif "Three" in line:
-            num_need_change = "Three"
-            num_for_change = "Три"
-        elif "Four" in line:
-            num_need_change = "Four"
-            num_for_change = "Чотири"
 
-        if num_for_change != "":
-            new_line = line.split(" ")
-            new_line[new_line.index(num_need_change)] = num_for_change
-            new_f += " ".join(new_line)
-    with open("new_hw_file.txt", "w", encoding="utf-8") as f_w:
-        f_w.write(new_f)
+def main():
+    numbers = {
+        "One": "Один",
+        "Two": "Два",
+        "Three": "Три",
+        "Four": "Чотири"}
+    with open("cw_file.txt") as f:
+        with open("new_hw_file.txt", "w", encoding="utf-8") as f_w:
+            f_w.write(change_values(f, numbers))
+
+
+def change_values(old_file, dict_values: dict):
+    new_f = ""
+    for line in old_file:
+        new_line = line.split()
+        for key, values in dict_values.items():
+            while key in new_line:
+                new_line[new_line.index(key)] = values
+        new_f += " ".join(new_line) + "\n"
+    return new_f
+
+
+main()
