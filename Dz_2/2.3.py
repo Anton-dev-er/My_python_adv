@@ -3,8 +3,8 @@ import random
 
 def main():
     l_matrix = []
-    height = int(input("Введите высоту"))
-    width = int(input("Введите ширину"))
+    height = int(input("Введите высоту:"))
+    width = int(input("Введите ширину:"))
     print("Test 1")
     for i in range(0, height):
         l_matrix.append([int(random.randint(10, 20)) for i in range(0, width)])

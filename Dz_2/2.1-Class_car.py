@@ -13,7 +13,7 @@
 
 def main():
     print("=====Тест 1 =====")
-    c = TownCar("Bmv", "Red", 70)
+    c = TownCar("Bmv", "Red", 70, 2012)
     c.stop()
     print("==")
     c.show_speed()
@@ -27,7 +27,7 @@ def main():
     print(c)
 
     print("\n\n=====Тест 2 =====")
-    c1 = WorkCar("My_car", "Blue", 60)
+    c1 = WorkCar("My_car", "Blue", 60, 2021)
     c1.stop()
     c1.go(50)
     c1.show_speed()
@@ -60,34 +60,41 @@ class Car:
     def turn(self, direction):
         print(f"Ваша {self._name} повернула на {direction}")
 
-    def __str__(self):
-        return f"Ваши данные:\n\tИмя:{self._name}, Цвет: {self._color}, Скорость:{self._speed}\n"
-
 
 class TownCar(Car):
-    def __init__(self, name, color, speed, speed_limit=60):
+    __speed_limit = 60
+
+    def __init__(self, name, color, speed, year):
         super().__init__(name, color, speed)
-        self._speed_limit = speed_limit
+        self.__year = year
 
     def show_speed(self):
         super(TownCar, self).show_speed()
-        if self._speed > self._speed_limit:
+        if self._speed > __class__.__speed_limit:
             print("Ваша скорость выше нормы!")
-            if input(f"Предлагаю снизить скорость до {self._speed_limit} (y/n):") == "y":
-                self._speed = self._speed_limit
+            if input(f"Предлагаю снизить скорость до {__class__.__speed_limit} (y/n):") == "y":
+                self._speed = __class__.__speed_limit
+
+    def __str__(self):
+        return f"Ваши данные:\n\tИмя:{self._name}, Цвет: {self._color}, Скорость:{self._speed},Год:{self.__year}\n"
 
 
 class WorkCar(Car):
-    def __init__(self, name, color, speed, speed_limit=40):
+    __speed_limit = 60
+
+    def __init__(self, name, color, speed, year):
         super().__init__(name, color, speed)
-        self._speed_limit = speed_limit
+        self.__year = year
 
     def show_speed(self):
         super(WorkCar, self).show_speed()
-        if self._speed > self._speed_limit:
+        if self._speed > __class__.__speed_limit:
             print("Ваша скорость выше нормы!")
-            if input(f"Предлагаю снизить скорость до {self._speed_limit} (y/n):") == "y":
-                self._speed = self._speed_limit
+            if input(f"Предлагаю снизить скорость до {__class__.__speed_limit} (y/n):") == "y":
+                self._speed = __class__.__speed_limit
+
+    def __str__(self):
+        return f"Ваши данные:\n\tИмя:{self._name}, Цвет: {self._color}, Скорость:{self._speed},Год:{self.__year}\n"
 
 
 main()

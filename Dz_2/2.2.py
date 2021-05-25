@@ -16,7 +16,6 @@ import uuid
 def main():
     c1 = Statement("Test1", "Test2", "Test3")
     c1.set_status()
-    c1.set_id()
     c1.show_data()
     c2 = Statement("Test1", "Test2", "Test3")
     c3 = Statement("Test1", "Test2", "Test3")
@@ -29,12 +28,12 @@ class Statement:
     __count_status = 0
 
     def __init__(self, name, serial_number, identificator, status="active"):
-        self.serial_number = serial_number
-        self.identificator = identificator
-        self.name = name
-        self.data = date.today()
-        self.status = status
-        self.ID = uuid.uuid4()
+        self.__serial_number = serial_number
+        self.__identificator = identificator
+        self.__name = name
+        self.__data = date.today()
+        self.__status = status
+        self.__ID = uuid.uuid4()
         Statement.__count_status += 1
 
     def set_status(self):
@@ -54,11 +53,11 @@ class Statement:
         return Statement.__count_status
 
     def get_id(self):
-        return f"ID: {self.ID}"
+        return f"ID: {self.__ID}"
 
     def show_data(self):
-        print(f"Name:{self.name}\nSerial Number:{self.serial_number}\nIdentificator:{self.identificator}\
-                \nStatus:{self.status}\nID:{Statement.__id}")
+        print(f"Name:{self.__name}\nSerial Number:{self.__serial_number}\nIdentificator:{self.__identificator}\
+                \nStatus:{self.__status}\nID:{self.__ID}")
 
 
 main()
