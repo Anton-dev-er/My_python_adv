@@ -21,7 +21,6 @@ def main():
     print(m1 / 100)
 
 
-
 class Matrix:
     def __init__(self, list_matrix):
         self.list_matrix = list_matrix
