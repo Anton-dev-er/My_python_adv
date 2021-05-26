@@ -23,8 +23,6 @@ def main():
 
 
 class Matrix:
-    height, width = 0, 0
-
     def __init__(self, list_matrix):
         self.list_matrix = list_matrix
         self.height = len(list_matrix)

@@ -1,13 +1,10 @@
+import random
 
 class Matrix:
-    height, width = 0, 0
-
     def __init__(self, list_matrix):
         self.list_matrix = list_matrix
-
-    def set_side(self, height, width):
-        self.height = height
-        self.width = width
+        self.height = len(list_matrix)
+        self.width = len(list_matrix[0])
 
     def __add__(self, other):
         new_matrix = [[0] * self.width for i in range(self.height )]
@@ -47,11 +44,7 @@ class Matrix:
         return f"Ваш список:{(' '.join(map(str, self.list_matrix)))}"
 
 
-def test_my_matr():
-    l_matrix = [1, 1, 2]
-    m1 = Matrix(l_matrix)
-    m2 = Matrix(l_matrix)
-    print(m1 + m2)
-    # assert m1 + m2 == Matrix([2, 2])
+def test_():
+    assert Matrix([2, 2]) == Matrix([2, 2])
 
-test_my_matr()
+
