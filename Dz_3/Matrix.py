@@ -1,34 +1,36 @@
 import random
 
-
 def main():
-    l_matrix = []
-    height = int(input("Введите высоту:"))
-    width = int(input("Введите ширину:"))
-    print("Test 1")
-    for i in range(0, height):
-        l_matrix.append([int(random.randint(10, 20)) for i in range(0, width)])
-    m1 = Matrix(l_matrix)
-    print(m1)
-
-    print("\nTest 2")
-    m2 = Matrix(l_matrix)
-
-
+    # l_matrix = []
+    # height = int(input("Введите высоту:"))
+    # width = int(input("Введите ширину:"))
+    # print("Test 1")
+    # for i in range(0, height):
+    #     l_matrix.append([int(random.randint(10, 20)) for i in range(0, width)])
+    # m1 = Matrix(l_matrix)
+    # m1.set_side(height, width)
+    # print(m1)
+    #
+    # print("\nTest 2")
+    # m2 = Matrix(l_matrix)
+    # m2.set_side(height, width)
+    #
+    # print(m1 + m2)
+    # print(m1 - m2)
+    # print(m1 * 100)
+    # print(m1 / 100)
     print(m1 + m2)
-    print(m1 - m2)
-    print(m1 * 100)
-    print(m1 / 100)
 
 
 
 class Matrix:
     height, width = 0, 0
 
-    def __init__(self, list_matrix):
+    def __init__(self, list_matrix, height, width):
         self.list_matrix = list_matrix
-        self.height = len(list_matrix)
-        self.width = len(list_matrix[0])
+        self.height = height
+        self.width = width
+
 
     def __add__(self, other):
         new_matrix = [[0] * self.width for i in range(self.height )]
@@ -67,5 +69,6 @@ class Matrix:
     def __str__(self):
         return f"Ваш список:{(' '.join(map(str, self.list_matrix)))}"
 
-
 main()
+
+
