@@ -36,12 +36,11 @@ class Statement:
         self.__ID = uuid.uuid4()
         Statement.__count_status += 1
 
-    def set_status(self):
-        a = input("Введите статус заявки active\closed: ")
-        if a == "active":
+    def set_status(self, status: str):
+        if status == "active":
             self.status = "active"
             print("Ваша заявка активная")
-        elif a == "closed":
+        elif status == "closed":
             self.status = "closed"
             print("Ваша заявка закрыта")
         else:
