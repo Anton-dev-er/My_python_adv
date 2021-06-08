@@ -6,15 +6,8 @@ from abc import ABC, abstractmethod
 
 
 env = Env()
-MY_PASS = env.str("MY_PASS")
-
-conn = connect(
-    database="postgres",
-    user="postgres",
-    password=MY_PASS,
-    host="localhost",
-    port="5432"
-)
+CONN_STRING = env.str("CONN")
+conn = connect(CONN_STRING)
 
 
 class DataRequiredException(Exception):
