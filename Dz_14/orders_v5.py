@@ -1,7 +1,12 @@
+from envparse import Env
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-DB_URL = 'postgresql://postgres:Plisiukk_11@:5432/postgres_db'
+
+
+env = Env()
+DB_URL = env.str("CONN")
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -23,6 +28,7 @@ class Employee(db.Model):
     create_dt = db.Column(db.DateTime, default=datetime.utcnow())
     department_id = db.Column(db.Integer, db.ForeignKey('deparments.department_id'), nullable=False)
 
+
 class Orders(db.Model):
     order_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     order_type = db.Column(db.String(100), nullable=False)
@@ -34,15 +40,15 @@ class Orders(db.Model):
 
 
 if __name__ == "__main__":
-    db.create_all()
-    d = Deparments(department_name="Dp_11")
-    db.session.add(d)
-    db.session.commit()
-
-    e = Employee(department_id=d.department_id, position="Test")
-    db.session.add(e)
-    db.session.commit()
-
-    o = Orders(order_type="Active", status="Tets_status", serial_no=12456, creator_id=e.employee_id)
-    db.session.add(o)
-    db.session.commit()
+    db.drop_all()
+    # d = Deparments(department_name="1234")
+    # db.session.add(d)
+    # db.session.commit()
+    #
+    # e = Employee(department_id=d.department_id, position="Test")
+    # db.session.add(e)
+    # db.session.commit()
+    #
+    # o = Orders(order_type="Active", status="Tets_status", serial_no=12456, creator_id=e.employee_id)
+    # db.session.add(o)
+    # db.session.commit()
